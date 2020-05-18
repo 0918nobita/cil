@@ -30,5 +30,5 @@ args = {
 ```bash
 $ cd mono
 $ mcs Foreach.cs # outputs Foreach.exe
-$ ildasm mono/Foreach.exe -out=Foreach.exe.il
+$ ildasm Foreach.exe -out=Foreach.exe.il
 ```
