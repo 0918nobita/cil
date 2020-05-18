@@ -11,15 +11,10 @@ Common Intermediate Language
 | `strIndexOf.il` | Call `String::indexOf(string)` |
 | `cmdArgs.il` | Print command line arguments |
 
-## Assemble
+## Assemble / Run
 
 ```bash
-$ ildasm cmdArgs.il -quiet
-```
-
-## Run
-
-```bash
+$ ilasm cmdArgs.il -quiet
 $ mono cmdArgs.exe a b "c de"
 args[1] = a
 args = {
