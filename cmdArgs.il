@@ -7,10 +7,10 @@
     .locals init (string[] args, int32 i)
 
     call string[] [mscorlib]System.Environment::GetCommandLineArgs()
-    stloc.0
+    stloc args
 
     ldstr "args[1] = "
-    ldloc.0
+    ldloc args
     ldc.i4.1
     ldelem.ref
     call string [mscorlib]System.String::Concat(string, string)
