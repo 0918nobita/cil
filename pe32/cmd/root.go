@@ -5,10 +5,7 @@ import (
 	"encoding/binary"
 	"flag"
 	"fmt"
-	"math"
-	"math/rand"
 	"os"
-	"time"
 )
 
 // PE32 represents PE32 Executable
@@ -19,22 +16,6 @@ type PE32 struct {
 // Execute main procedures
 func Execute(version string, revision string) {
 	fmt.Println("PE32 Parser", version, "rev", revision)
-
-	rand.Seed(time.Now().UnixNano())
-	fmt.Println("My favorite number is", rand.Intn(10))
-
-	fmt.Println(math.Pi)
-
-	fmt.Println("3 + 4 =", add(3, 4))
-
-	a, b := swap("world", "hello")
-	fmt.Println(a, b)
-
-	sum := 0;
-	for i := 0; i < 10; i++ {
-		sum += i
-	}
-	fmt.Println("Sum:", sum)
 
 	flag.Parse()
 	args := flag.Args()
@@ -55,13 +36,5 @@ func Execute(version string, revision string) {
 	exe := PE32{}
 	buf := bufio.NewReader(file)
 	binary.Read(buf, binary.LittleEndian, &exe.Magic)
-	fmt.Printf("%s\n", exe.Magic)
-}
-
-func add(x, y int) int {
-	return x + y
-}
-
-func swap(x, y string) (string, string) {
-	return y, x
+	fmt.Printf("Magic: %s\n", exe.Magic)
 }
