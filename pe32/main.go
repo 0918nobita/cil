@@ -5,9 +5,9 @@ import (
 )
 
 var (
-	// Version version
+	// Version passed from ldflags
 	Version string
-	// Revision revision
+	// Revision passed from ldflags 
 	Revision string
 )
 
