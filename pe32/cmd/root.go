@@ -1,11 +1,13 @@
 package cmd
 
 import (
-	"bytes"
+	"bufio"
 	"encoding/binary"
+	"flag"
 	"fmt"
 	"math"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -25,17 +27,33 @@ func Execute(version string, revision string) {
 
 	fmt.Println("3 + 4 =", add(3, 4))
 
-	var a, b = swap("world", "hello")
+	a, b := swap("world", "hello")
 	fmt.Println(a, b)
 
-	var sum = 0;
+	sum := 0;
 	for i := 0; i < 10; i++ {
 		sum += i
 	}
 	fmt.Println("Sum:", sum)
 
-	var buf = bytes.NewBuffer([]byte{ 0x4d, 0x5a })
-	var exe = PE32{}
+	flag.Parse()
+	args := flag.Args()
+	if len(args) < 1 {
+		fmt.Println("読み取り対象のファイルが指定されていません")
+		os.Exit(1)
+	}
+
+	filePath := args[0]
+
+	file, err := os.Open(filePath)
+	if err != nil {
+		fmt.Println("ファイルの読み込みに失敗しました")
+		os.Exit(1)
+	}
+	defer file.Close()
+
+	exe := PE32{}
+	buf := bufio.NewReader(file)
 	binary.Read(buf, binary.LittleEndian, &exe.Magic)
 	fmt.Printf("%s\n", exe.Magic)
 }
