@@ -1,3 +1,6 @@
+// ilasm strIndexOf.il -quiet
+// mono strIndexOf.exe
+
 .assembly hello {}
 
 .method public static void main() cil managed

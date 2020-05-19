@@ -1,3 +1,6 @@
+// ilasm cmdArgs.il -quiet
+// mono cmdArgs.exe
+
 .assembly extern mscorlib {}
 .assembly cmdArgs {}
 

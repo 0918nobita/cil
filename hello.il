@@ -1,3 +1,6 @@
+// ilasm hello.il -quiet
+// mono hello.exe
+
 .assembly hello {}
 
 .method public static void main() cil managed

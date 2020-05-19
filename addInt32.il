@@ -1,3 +1,6 @@
+// ilasm addInt32.il -quiet
+// mono addInt32.exe
+
 .assembly hello {}
 
 .method public static void main() cil managed

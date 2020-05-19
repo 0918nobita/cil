@@ -1,3 +1,6 @@
+// ilasm prog2.il -quiet
+// mono prog2.exe
+
 .assembly extern mscorlib { }
 .assembly test { }
 
