@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/0918nobita/cil/go/cmd"
+	"github.com/0918nobita/cil/pe32/cmd"
 )
 
 var (
