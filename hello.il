@@ -5,4 +5,5 @@
     .entrypoint
     ldstr "Hello, world!"
     call void [mscorlib]System.Console::WriteLine(class System.String)
+    ret
 }
